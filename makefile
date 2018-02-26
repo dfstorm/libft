@@ -6,7 +6,7 @@
 #    By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/23 11:34:53 by ggenois      #+#   ##    ##    #+#        #
-#    Updated: 2018/02/26 10:24:12 by ggenois     ###    #+. /#+    ###.fr      #
+#    Updated: 2018/02/26 10:59:23 by ggenois     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -75,7 +75,7 @@ NAME = $(PROJECT).a
 CC = gcc
 CFLAGS += -g -Wall -Werror -Wextra
 
-SRC_PATH = ./
+SRC_PATH = ./src/
 INC_PATH = ./includes/
 OBJ_PATH = ./obj/
 OBJ_PATHS = output list memory str
@@ -104,13 +104,6 @@ fclean: clean
 	/bin/rm -rf $(NAME)
 
 re: fclean all
-
-git_add:
-	make fclean
-	git add src/*
-	git add Makefile
-	git add includes/*
-	git add auteur
 
 test: all
 	gcc -g -L. -lft -I $(INC_PATH) main/main.c
