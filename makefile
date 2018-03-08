@@ -69,10 +69,7 @@ output/ft_putnbr.c \
 output/ft_putstr_fd.c \
 output/ft_putstr.c \
 output/ft_putnbr_fd.c\
-perso/my_malloc.c\
-perso/ft_strjoin_patched.c\
-perso/ft_strfindchar.c\
-perso/my_malloc_cleanup.c
+perso/ft_strfindchar.c
 
 PROJECT = libft
 NAME = $(PROJECT).a

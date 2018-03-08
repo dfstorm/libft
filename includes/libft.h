@@ -25,13 +25,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-static	int			g_ft_memhistoy_switch = 0;
-static t_list		*g_ft_memhistoy;
-
 int					ft_strfindchar(char *haystack, char item);
-void				*my_malloc(int size);
-void				*my_malloc_cleanup(void);
-char				*ft_strjoin_patched(char *s1, char *s2);
 
 int					ft_atoi(const char *str);
 int					ft_isalnum(int c);
