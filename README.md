@@ -1,4 +1,5 @@
 # libft
-my 101 / 42 libft
 
-make && make clean
+My personnal C library.
+
+`make -C libft/ fclean && make -C libft/`
