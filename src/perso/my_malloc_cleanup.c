@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_lstnew.c                                      .::    .:/ .      .::   */
+/*   my_malloc_cleanup.c                              .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/23 11:01:09 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/28 18:59:27 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Created: 2018/02/28 18:42:15 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/02/28 20:29:31 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+void	*my_malloc_cleanup(void)
 {
-	t_list	*new;
+	t_list	*erase;
+	t_list	*next;
 
-	new = (t_list *)malloc(sizeof(*new));
-	if (new == NULL)
-		return (NULL);
-	else
+	if (g_ft_memhistoy_switch == 1)
 	{
-		if (content != NULL)
+		erase = g_ft_memhistoy;
+		while (erase)
 		{
-			new->content = (void *)ft_memalloc(
-			sizeof(void) * (content_size + 1));
-			if (new->content == NULL)
-				return (NULL);
-			ft_memcpy(new->content, content, content_size);
-			new->content_size = content_size;
+			next = erase->next;
+			free(erase);
+			erase = next;
 		}
-		else
-		{
-			new->content = NULL;
-			new->content_size = 0;
-		}
-		new->next = NULL;
+		free(g_ft_memhistoy);
+		g_ft_memhistoy = NULL;
+		g_ft_memhistoy_switch = 0;
+		free(erase);
+		free(next);
 	}
-	return (new);
+	return (NULL);
 }

@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   libft.h                                          .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: ggenois <ggenois@student.42.fr>            +:+   +:    +:    +:+     */
+/*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/23 11:21:37 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2017/11/24 14:22:09 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/08 16:17:07 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,6 +24,14 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+static	int			g_ft_memhistoy_switch = 0;
+static t_list		*g_ft_memhistoy;
+
+int					ft_strfindchar(char *haystack, char item);
+void				*my_malloc(int size);
+void				*my_malloc_cleanup(void);
+char				*ft_strjoin_patched(char *s1, char *s2);
 
 int					ft_atoi(const char *str);
 int					ft_isalnum(int c);

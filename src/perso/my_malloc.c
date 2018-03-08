@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_lstnew.c                                      .::    .:/ .      .::   */
+/*   my_malloc.c                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/23 11:01:09 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/28 18:59:27 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Created: 2018/02/28 14:24:15 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/02/28 18:42:26 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+void	*my_malloc(int size)
 {
-	t_list	*new;
+	void *p;
 
-	new = (t_list *)malloc(sizeof(*new));
-	if (new == NULL)
+	if (!(p = malloc(size)))
 		return (NULL);
-	else
+	if (g_ft_memhistoy_switch == 0)
 	{
-		if (content != NULL)
-		{
-			new->content = (void *)ft_memalloc(
-			sizeof(void) * (content_size + 1));
-			if (new->content == NULL)
-				return (NULL);
-			ft_memcpy(new->content, content, content_size);
-			new->content_size = content_size;
-		}
-		else
-		{
-			new->content = NULL;
-			new->content_size = 0;
-		}
-		new->next = NULL;
+		g_ft_memhistoy = ft_lstnew(p, size);
+		g_ft_memhistoy_switch = 1;
 	}
-	return (new);
+	else
+		ft_lstadd(&g_ft_memhistoy, ft_lstnew(p, size));
+	return (p);
 }

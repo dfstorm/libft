@@ -6,7 +6,7 @@
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/11/13 10:57:41 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/26 10:57:40 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/28 18:37:32 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s)
 	int		i;
 
 	i = 0;
-	strout = (char*)malloc((ft_strlen(s) + 1) * sizeof(char));
+	strout = (char*)my_malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (strout == NULL)
 		return (NULL);
 	while (s[i] != '\0')

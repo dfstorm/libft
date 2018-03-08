@@ -35,9 +35,13 @@ static int	ft_searchword(const char *str, const char *needle, int i)
 
 char		*ft_strstr(const char *haystack, const char *needle)
 {
+	char	*pos;
 	int		i;
+	int		x;
 
+	x = 0;
 	i = 0;
+	pos = "\0";
 	if (ft_strlen(needle) == 0)
 		return ((char *)haystack);
 	while (haystack[i])

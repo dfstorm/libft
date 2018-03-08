@@ -6,7 +6,7 @@
 #    By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2017/11/23 11:34:53 by ggenois      #+#   ##    ##    #+#        #
-#    Updated: 2018/02/26 10:59:23 by ggenois     ###    #+. /#+    ###.fr      #
+#    Updated: 2018/03/08 16:17:24 by ggenois     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -68,7 +68,11 @@ output/ft_putendl_fd.c \
 output/ft_putnbr.c \
 output/ft_putstr_fd.c \
 output/ft_putstr.c \
-output/ft_putnbr_fd.c
+output/ft_putnbr_fd.c\
+perso/my_malloc.c\
+perso/ft_strjoin_patched.c\
+perso/ft_strfindchar.c\
+perso/my_malloc_cleanup.c
 
 PROJECT = libft
 NAME = $(PROJECT).a
@@ -78,7 +82,7 @@ CFLAGS += -g -Wall -Werror -Wextra
 SRC_PATH = ./src/
 INC_PATH = ./includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = output list memory str
+OBJ_PATHS = output list memory str perso
 
 
 OBJ_SUB_PATHS = $(addprefix $(OBJ_PATH),$(OBJ_PATHS))

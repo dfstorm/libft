@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_lstnew.c                                      .::    .:/ .      .::   */
+/*   ft_strjoin_patched.c                             .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2017/11/23 11:01:09 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/28 18:59:27 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Created: 2018/03/01 18:38:53 by ggenois      #+#   ##    ##    #+#       */
+/*   Updated: 2018/03/01 18:58:27 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+char	*ft_strjoin_patched(char *s1, char *s2)
 {
-	t_list	*new;
+	int		x;
+	char	*sx;
 
-	new = (t_list *)malloc(sizeof(*new));
-	if (new == NULL)
-		return (NULL);
-	else
+	x = (int)(ft_strlen(s1) + ft_strlen(s2));
+	sx = ft_strnew(x);
+	x = -1;
+	if (s1 > 0)
+		while (s1[++x] != '\0')
+			sx[x] = s1[x];
+	while (s2[x - ft_strlen(s1)] != '\0')
 	{
-		if (content != NULL)
-		{
-			new->content = (void *)ft_memalloc(
-			sizeof(void) * (content_size + 1));
-			if (new->content == NULL)
-				return (NULL);
-			ft_memcpy(new->content, content, content_size);
-			new->content_size = content_size;
-		}
-		else
-		{
-			new->content = NULL;
-			new->content_size = 0;
-		}
-		new->next = NULL;
+		sx[x] = s2[x - ft_strlen(s1)];
+		x++;
 	}
-	return (new);
+	sx[x] = '\0';
+	return (sx);
 }

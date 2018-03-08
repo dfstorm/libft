@@ -6,7 +6,7 @@
 /*   By: ggenois <ggenois@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/09/08 23:18:31 by ggenois      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/26 10:58:03 by ggenois     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/28 21:30:51 by ggenois     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,8 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
-	while (*(str + i) != '\0')
-		i++;
+	if (str)
+		while (str[i])
+			i++;
 	return (i);
 }
