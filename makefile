@@ -45,6 +45,11 @@ str/ft_tolower.c \
 str/ft_toupper.c \
 str/ft_strtrim.c \
 str/ft_strsplit.c \
+str/ft_printf.c \
+str/ft_isprintable.c\
+str/ft_llitoa_base.c\
+str/ft_lluitoa_base.c\
+str/ft_findcis.c\
 memory/ft_bzero.c \
 memory/ft_memcpy.c \
 memory/ft_memcmp.c \
@@ -60,6 +65,10 @@ list/ft_lstiter.c \
 list/ft_lstdelone.c \
 list/ft_lstmap.c \
 list/ft_lstnew.c \
+list/ft_lstcount.c\
+list/ft_lstfromstr.c\
+list/ft_lstcpy.c\
+list/ft_lstcutat.c\
 output/ft_isprint.c \
 output/ft_putchar.c \
 output/ft_putchar_fd.c \
@@ -69,7 +78,30 @@ output/ft_putnbr.c \
 output/ft_putstr_fd.c \
 output/ft_putstr.c \
 output/ft_putnbr_fd.c\
-perso/ft_strfindchar.c
+str/ft_strfindchar.c\
+str/ft_convert_baseten.c\
+str/ft_itoa_base.c\
+str/ft_uitoa_base.c\
+str/ft_luitoa_base.c\
+str/ft_litoa_base.c\
+str/ft_putunbr.c\
+str/ft_strupper.c\
+str/ft_putlunbr.c\
+str/ft_putlsnbr.c\
+str/ft_putlstr.c\
+str/ft_putlchar.c\
+str/ft_strlenw.c\
+input/get_next_line.c\
+str/pf/ftpf_core.c\
+str/pf/ftpf_isolate.c\
+str/pf/ftpf_types.c\
+str/pf/ftpf_strings.c\
+str/pf/ftpf_write.c\
+str/pf/ftpf_numbers.c\
+str/pf/ftpf_utils.c\
+str/pf/ftpf_get_n.c\
+str/pf/ftpf_precision.c\
+list/ft_lstwipe.c
 
 PROJECT = libft
 NAME = $(PROJECT).a
@@ -79,7 +111,7 @@ CFLAGS += -g -Wall -Werror -Wextra
 SRC_PATH = ./src/
 INC_PATH = ./includes/
 OBJ_PATH = ./obj/
-OBJ_PATHS = output list memory str perso
+OBJ_PATHS = output list memory str str/pf input
 
 
 OBJ_SUB_PATHS = $(addprefix $(OBJ_PATH),$(OBJ_PATHS))
